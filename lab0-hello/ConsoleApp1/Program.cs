@@ -70,3 +70,49 @@ class Program
         Console.WriteLine("Goodbye.");
     }
 }
+// Exercise 2: The Dice Table
+            if (choice == 2 || choice == 4)
+            {
+                Console.WriteLine("=== Exercise 2: The Dice Table ===");
+
+                int rolls = 0;
+                int wins = 0;
+                string again = "y";
+
+                while (again == "y" || again == "Y")
+                {
+                    rolls++;
+                    int d1 = rng.Next(1, 7);
+                    int d2 = rng.Next(1, 7);
+                    int total = d1 + d2;
+
+                    Console.Write($"Roll {rolls}: {d1} and {d2}, total {total}. ");
+
+                    if (d1 == 1 && d2 == 1)
+                    {
+                        Console.WriteLine("Snake eyes.");
+                    }
+                    else if (d1 == d2)
+                    {
+                        Console.WriteLine("Doubles!");
+                    }
+                    else if (total == 7 || total == 11)
+                    {
+                        Console.WriteLine("A winner.");
+                    }
+                    else
+                    {
+                        Console.WriteLine();
+                    }
+
+                    if (total == 7 || total == 11)
+                    {
+                        wins++;
+                    }
+
+                    Console.Write("Roll again? (y/n): ");
+                    again = Console.ReadLine();
+                }
+
+                Console.WriteLine($"You rolled {rolls} times and won {wins}.");
+            }
