@@ -116,3 +116,48 @@ class Program
 
                 Console.WriteLine($"You rolled {rolls} times and won {wins}.");
             }
+// Exercise 3: The Score Report
+            if (choice == 3 || choice == 4)
+            {
+                Console.WriteLine("=== Exercise 3: The Score Report ===");
+
+                int[] scores = new int[5];
+
+                for (int i = 0; i < scores.Length; i++)
+                {
+                    Console.Write($"Score {i + 1}: ");
+                    scores[i] = int.Parse(Console.ReadLine());
+                }
+
+                int total = 0;
+                int high = scores[0];
+                int passing = 0;
+
+                foreach (int s in scores)
+                {
+                    total += s;
+
+                    if (s > high)
+                    {
+                        high = s;
+                    }
+
+                    if (s >= 60)
+                    {
+                        passing++;
+                    }
+                }
+
+                double avg = (double)total / scores.Length;
+
+                Console.WriteLine($"Scores entered: {scores.Length}");
+                Console.WriteLine($"Total: {total}");
+                Console.WriteLine($"Average: {avg:F1}");
+                Console.WriteLine($"Highest: {high}");
+                Console.WriteLine($"Passing: {passing} of {scores.Length}");
+            }
+        }
+
+        Console.WriteLine("Goodbye.");
+    }
+}
